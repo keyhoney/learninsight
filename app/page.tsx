@@ -90,9 +90,13 @@ export default function Home() {
     <div className="px-6 py-16">
       <main className="mx-auto max-w-6xl space-y-24">
         {/* A) Hero: 2열 비대칭 — 좌측 H1·설명·CTA, 우측 신뢰 패널 */}
-        <section className="relative">
+        <section className="relative overflow-hidden">
           <div
             className="pointer-events-none absolute -top-10 left-0 right-0 h-48 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,var(--brand-500)_0%,transparent_60%)] opacity-[0.06]"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute top-0 right-0 h-64 w-64 bg-[radial-gradient(circle_at_100%_0%,var(--brand-500)_0%,transparent_55%)] opacity-[0.04]"
             aria-hidden
           />
           <div className="relative grid gap-12 md:grid-cols-[1fr,minmax(280px,340px)] md:items-start">
@@ -122,13 +126,13 @@ export default function Home() {
               </div>
             </div>
             <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-featured)] p-6 shadow-sm">
-              <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
-                브랜드 소개
+              <p className="text-sm font-semibold text-foreground">
+                왜 신뢰할 수 있나요
               </p>
               <ul className="mt-4 space-y-3">
                 {TRUST_ITEMS.map((label) => (
                   <li key={label} className="flex items-start gap-2 text-sm text-foreground">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[var(--brand-500)]" aria-hidden />
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-500)]" aria-hidden />
                     {label}
                   </li>
                 ))}
@@ -184,10 +188,10 @@ export default function Home() {
             {guidesCat && (
               <Link
                 href={guidesCat.href}
-                className="group flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-6 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface)] lg:col-span-5"
-                style={{ borderLeftWidth: "3px", borderLeftColor: PILLAR_STRIP.guides }}
+                className="group flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-8 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface)] lg:col-span-5"
+                style={{ borderLeftWidth: "4px", borderLeftColor: PILLAR_STRIP.guides }}
               >
-                <h2 className="text-xl font-semibold text-foreground group-hover:text-[var(--brand-500)]" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
+                <h2 className="text-2xl font-semibold text-foreground group-hover:text-[var(--brand-500)]" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
                   {guidesCat.title}
                 </h2>
                 <p className="mt-1 text-sm text-[var(--muted)]">{guidesCat.description}</p>
@@ -288,7 +292,7 @@ export default function Home() {
                 className="group block rounded-2xl border border-[var(--border)] bg-[var(--surface-featured)] p-8 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface-2)]"
                 style={{ borderLeftWidth: "4px", borderLeftColor: PILLAR_STRIP.guides }}
               >
-                <span className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">가이드</span>
+                <span className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">대표 가이드</span>
                 <h3 className="mt-2 text-2xl font-semibold text-foreground group-hover:text-[var(--brand-500)]" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
                   {featuredGuides[0].title}
                 </h3>
@@ -297,7 +301,7 @@ export default function Home() {
                     {featuredGuides[0].description}
                   </p>
                 )}
-                <p className="mt-4 text-sm text-[var(--muted)]">
+                <p className="mt-5 text-base font-medium text-[var(--muted)]">
                   {featuredGuides[0].readingTimeMinutes > 0 ? `${featuredGuides[0].readingTimeMinutes}분 읽기` : "읽기"}
                 </p>
               </Link>

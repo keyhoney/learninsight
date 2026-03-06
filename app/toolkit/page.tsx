@@ -14,6 +14,7 @@ export default function ToolkitListPage() {
   const raw = getAllByType("toolkit");
   const items = raw.map(({ slug, frontmatter }) => {
     const { content } = getBySlug("toolkit", slug);
+    const toolkitType = frontmatter.toolkitType as "routine" | "template" | "checklist" | undefined;
     return {
       slug,
       href: fullPath("toolkit", slug),
@@ -28,6 +29,7 @@ export default function ToolkitListPage() {
           ? frontmatter.readingTime
           : getReadingTimeMinutes(content),
       grade: (frontmatter.grade as string) || "",
+      toolkitType: toolkitType && ["routine", "template", "checklist"].includes(toolkitType) ? toolkitType : undefined,
     };
   });
   const allOrderedCategories = getOrderedCategoriesForFilter();

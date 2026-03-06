@@ -40,19 +40,21 @@ export default function GuidesListPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-14">
-      <SectionHeader
-        layout="twoCol"
-        eyebrow="가이드"
-        title="핵심 문서"
-        description="연구 기반의 깊이 있는 가이드입니다. 주제별로 정리된 에버그린 문서를 읽어 보세요."
-        badges={["연구 기반", "업데이트 기준"]}
-        secondary={
-          <div className="space-y-2 text-sm text-[var(--muted)]">
-            <p><strong className="text-foreground">가이드 {items.length}개</strong></p>
-            <p>주제별 · 카테고리·태그로 필터링 가능</p>
-          </div>
-        }
-      />
+      <div className="mb-12 rounded-2xl border border-[var(--border)] bg-[var(--surface-featured)] px-6 py-8 md:px-8 md:py-10">
+        <SectionHeader
+          layout="twoCol"
+          eyebrow="가이드"
+          title="핵심 문서"
+          description="연구 기반의 깊이 있는 가이드입니다. 주제별로 정리된 에버그린 문서를 읽어 보세요."
+          badges={["연구 기반", "업데이트 기준"]}
+          secondary={
+            <div className="space-y-2 text-sm text-[var(--muted)]">
+              <p><strong className="text-foreground">가이드 {items.length}개</strong></p>
+              <p>주제별 · 카테고리·태그로 필터링 가능</p>
+            </div>
+          }
+        />
+      </div>
       {featured && listItems.length !== items.length && (
         <div className="mb-12">
           <Link

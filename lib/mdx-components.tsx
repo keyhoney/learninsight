@@ -53,7 +53,7 @@ export const mdxServerComponents: MDXComponents = {
     </ol>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="mb-6 border-l-[3px] border-[var(--accent)] bg-[var(--inset)]/40 py-2 pl-5 pr-4 italic text-[var(--muted)]">
+    <blockquote className="mb-6 border-l-[4px] border-[var(--accent)] bg-[var(--muted-bg)]/80 py-3 pl-5 pr-4 text-[var(--muted)] not-italic">
       {children}
     </blockquote>
   ),

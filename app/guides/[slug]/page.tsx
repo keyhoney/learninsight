@@ -158,17 +158,25 @@ export default async function GuidePage({
                   {description}
                 </p>
               )}
-              <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-lg border border-[var(--border)]/80 bg-[var(--inset)]/30 px-4 py-3 text-sm text-[var(--muted)]">
-                {dateModified && <span>최종 업데이트: {dateModified}</span>}
+              <div className="mt-6 flex flex-wrap items-center gap-2">
+                {dateModified && (
+                  <span className="rounded-full border border-[var(--border)] bg-[var(--surface-2)] px-3 py-1.5 text-xs font-medium text-[var(--muted)]">
+                    최종 업데이트: {dateModified}
+                  </span>
+                )}
                 {grade && (
-                  <span className="rounded-full border border-[var(--border)] bg-[var(--surface-2)] px-2.5 py-0.5 text-xs font-medium text-foreground">
+                  <span className="rounded-full border border-[var(--border)] bg-[var(--surface-2)] px-3 py-1.5 text-xs font-medium text-foreground">
                     {grade}
                   </span>
                 )}
-                {readingTime > 0 && <span>{readingTime}분 읽기</span>}
+                {readingTime > 0 && (
+                  <span className="rounded-full border border-[var(--border)] bg-[var(--surface-2)] px-3 py-1.5 text-xs font-medium text-[var(--muted)]">
+                    {readingTime}분 읽기
+                  </span>
+                )}
                 {hasReferences && (
-                  <Link href="#references" className="text-[var(--brand-500)] no-underline hover:underline hover:underline-offset-2">
-                    참고 문헌으로 점프
+                  <Link href="#references" className="rounded-full border border-[var(--brand-500)]/50 bg-[var(--brand-500)]/5 px-3 py-1.5 text-xs font-medium text-[var(--brand-500)] no-underline hover:bg-[var(--brand-500)]/10 hover:underline hover:underline-offset-2">
+                    참고 문헌
                   </Link>
                 )}
               </div>

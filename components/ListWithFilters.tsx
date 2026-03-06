@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ContentCard } from "@/components/ContentCard";
+import { ContentCard, type ToolkitType } from "@/components/ContentCard";
 import { FiltersBar, type SortOption } from "@/components/FiltersBar";
 import type { ContentType } from "@/lib/content";
 
@@ -17,6 +17,7 @@ export type ListItem = {
   tags: string[];
   audience?: string;
   grade?: string;
+  toolkitType?: ToolkitType;
 };
 
 type ListWithFiltersProps = {
@@ -111,6 +112,7 @@ export function ListWithFilters({
               categories={item.categories}
               tags={item.tags}
               audience={item.audience}
+              toolkitType={item.toolkitType}
             />
           </li>
         ))}

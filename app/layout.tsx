@@ -60,14 +60,14 @@ export default function RootLayout({
             aria-hidden
           />
           <div className="relative">
-            <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/95 backdrop-blur-sm">
+            <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/95 shadow-sm backdrop-blur-sm">
               <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
                 <Link href="/" className="flex min-w-0 flex-shrink-0 flex-col gap-0.5 transition hover:opacity-90">
                   <span className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
                     Learning Science for Parents
                   </span>
                   <span
-                    className="text-xl font-semibold tracking-tight text-foreground"
+                    className="text-2xl font-semibold tracking-tight text-foreground"
                     style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}
                   >
                     학습과학 지식 브랜드
@@ -90,12 +90,16 @@ export default function RootLayout({
                   학습과학 지식 브랜드
                 </p>
                 <p className="max-w-sm text-sm leading-relaxed text-[var(--muted)]">
-                  인지심리·뇌과학 연구를 바탕으로 학부모와 교육자를 위한 가이드, 개념 사전, 툴킷, 블로그를 제공합니다.
+                  인지·뇌·교육·발달·동기·정서를 다루는 학습과학 기반 콘텐츠입니다. 학부모와 교육자를 위한 가이드, 개념 사전, 툴킷, 블로그, 전자책을 제공합니다.
+                </p>
+                <p className="text-xs text-[var(--muted)]">
+                  인지심리학, 신경과학, 교육심리학, 발달심리학, 동기·정서심리학.
                 </p>
               </div>
               <div className="space-y-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">주요 섹션</p>
                 <ul className="flex flex-col gap-2 text-sm">
+                  <li><Link href="/domains" className="text-foreground no-underline hover:text-[var(--brand-500)]">주제별</Link></li>
                   <li><Link href="/guides" className="text-foreground no-underline hover:text-[var(--brand-500)]">가이드</Link></li>
                   <li><Link href="/concepts" className="text-foreground no-underline hover:text-[var(--brand-500)]">개념 사전</Link></li>
                   <li><Link href="/toolkit" className="text-foreground no-underline hover:text-[var(--brand-500)]">툴킷</Link></li>

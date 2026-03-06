@@ -171,10 +171,27 @@ body {
   border: 1px solid var(--border);
 }
 
+/* 리드 문단: 가이드 첫 설명 강조 */
+.lead {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+@media (min-width: 768px) {
+  .lead {
+    font-size: 1.125rem;
+    line-height: 2;
+  }
+}
+
 .prose blockquote {
   color: var(--muted);
-  border-left-color: var(--accent);
+  border-left: 3px solid var(--accent);
   background: var(--muted-bg);
+  padding: 0.75rem 1rem 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 0.375rem 0.375rem 0;
 }
 
 .prose p {

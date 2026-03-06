@@ -17,6 +17,9 @@ const PILLAR_STRIP: Record<ContentType, string> = {
   books: "var(--pillar-books)",
 };
 
+/** 툴킷 타입 배지 (frontmatter toolkitType) */
+export type ToolkitType = "routine" | "template" | "checklist";
+
 type ContentCardProps = {
   type: ContentType;
   title: string;
@@ -27,6 +30,9 @@ type ContentCardProps = {
   categories?: string[];
   tags?: string[];
   audience?: string;
+  toolkitType?: ToolkitType;
+  /** 개념 카드용: 이 개념을 참조하는 글 수 */
+  conceptReferringCount?: number;
 };
 
 function getCardClasses(type: ContentType): string {
@@ -37,7 +43,7 @@ function getCardClasses(type: ContentType): string {
     case "guides":
       return `${base} border-[var(--border)] bg-[var(--surface-2)] p-7 shadow-sm ${hoverBg}`;
     case "blog":
-      return `${base} border-[var(--border)]/80 bg-[var(--surface-2)] p-4 ${hoverBg}`;
+      return `${base} border-[var(--border)] bg-[var(--surface-2)] p-5 ${hoverBg}`;
     case "concepts":
       return `${base} border-[var(--border)] bg-[var(--inset)]/40 p-5 ${hoverBg}`;
     case "toolkit":
@@ -60,6 +66,12 @@ function getTitleSize(type: ContentType): string {
   }
 }
 
+const TOOLKIT_TYPE_LABEL: Record<ToolkitType, string> = {
+  routine: "루틴",
+  template: "템플릿",
+  checklist: "체크리스트",
+};
+
 export function ContentCard({
   type,
   title,
@@ -70,21 +82,33 @@ export function ContentCard({
   categories = [],
   tags = [],
   audience,
+  toolkitType,
+  conceptReferringCount,
 }: ContentCardProps) {
   const hasMeta = date || (readingTimeMinutes != null && readingTimeMinutes > 0) || audience;
   const titleSize = getTitleSize(type);
+  const stripWidth = type === "guides" ? "3px" : "2px";
 
   return (
     <article
       className={getCardClasses(type)}
-      style={{ borderLeftWidth: "2px", borderLeftColor: PILLAR_STRIP[type] }}
+      style={{ borderLeftWidth: stripWidth, borderLeftColor: PILLAR_STRIP[type] }}
     >
-      <Link href={href} className="group block">
-        <span className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
-          {TYPE_LABEL[type]}
-        </span>
+      <div className="flex flex-wrap items-center gap-2">
+        <Link href={href} className="group block">
+          <span className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
+            {TYPE_LABEL[type]}
+          </span>
+        </Link>
+        {type === "toolkit" && toolkitType && TOOLKIT_TYPE_LABEL[toolkitType] && (
+          <span className="rounded-full border border-[var(--border)] bg-[var(--inset)]/60 px-2.5 py-0.5 text-xs font-medium text-[var(--muted)]">
+            {TOOLKIT_TYPE_LABEL[toolkitType]}
+          </span>
+        )}
+      </div>
+      <Link href={href} className="group block mt-1">
         <h2
-          className={`mt-1 ${titleSize} font-semibold text-foreground transition group-hover:text-[var(--brand-500)]`}
+          className={`${titleSize} font-semibold text-foreground transition group-hover:text-[var(--brand-500)]`}
           style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}
         >
           {title}
@@ -114,11 +138,16 @@ export function ContentCard({
           className={
             type === "guides"
               ? "mt-4 text-[15.5px] font-medium leading-7 text-foreground md:leading-8"
-              : "mt-3 text-[15.5px] leading-7 text-[var(--muted)] md:leading-8"
+              : type === "concepts"
+                ? "mt-3 line-clamp-2 text-sm leading-6 text-[var(--muted)]"
+                : "mt-3 text-[15.5px] leading-7 text-[var(--muted)] md:leading-8"
           }
         >
           {description}
         </p>
+      )}
+      {type === "concepts" && conceptReferringCount != null && conceptReferringCount > 0 && (
+        <p className="mt-2 text-xs text-[var(--muted)]">{conceptReferringCount}개 글</p>
       )}
       {(categories.length > 0 || tags.length > 0) && (
         <div className="mt-3 flex flex-wrap gap-2">
@@ -126,7 +155,7 @@ export function ContentCard({
             <Link
               key={c}
               href={`/c/${encodeURIComponent(c)}`}
-              className="rounded-xl border border-[var(--border)]/80 px-2.5 py-1 text-xs font-medium text-foreground no-underline transition hover:border-[var(--border-strong)]"
+              className="rounded-full border border-[var(--border)] bg-[var(--inset)]/50 px-2.5 py-1 text-xs font-medium text-foreground no-underline transition hover:border-[var(--border-strong)] hover:bg-[var(--inset)]"
             >
               {c}
             </Link>
@@ -135,7 +164,7 @@ export function ContentCard({
             <Link
               key={t}
               href={`/t/${encodeURIComponent(t)}`}
-              className="rounded-xl px-2.5 py-1 text-xs font-medium text-[var(--muted)] no-underline hover:text-foreground"
+              className="rounded-full bg-[var(--muted-bg)]/80 px-2.5 py-1 text-xs font-medium text-[var(--muted)] no-underline hover:text-foreground"
             >
               #{t}
             </Link>
