@@ -25,14 +25,14 @@ export default function ConceptsListPage() {
   });
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-14">
+    <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
       <SectionHeader
         title="개념 사전"
         description="학습과학 용어·이론 인덱스. 정의와 짧은 설명, 관련 글이 있는 개념을 모았습니다."
         badge="정의·예시·적용"
       />
       {items.length === 0 ? (
-        <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-6 py-12 text-center">
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-4 py-10 text-center sm:px-6 sm:py-12">
           <p className="text-[var(--muted)]">등록된 개념이 없습니다. 콘텐츠가 곧 추가됩니다.</p>
         </div>
       ) : (

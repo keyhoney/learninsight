@@ -4,6 +4,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { NavLinks } from "@/components/NavLinks";
+import { PageEnterAnimation } from "@/components/PageEnterAnimation";
 import { ScrollDepthTracker } from "@/components/ScrollDepthTracker";
 import "./globals.css";
 
@@ -43,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${geistSans.variable} ${geistMono.variable} ${notoSerifKr.variable}`}>
-      <body className="min-h-screen antialiased bg-[var(--background)] text-foreground">
+      <body className="min-h-screen antialiased bg-[var(--background)] text-foreground overflow-x-hidden">
         {/* 브랜드 프레임: Base(은은한 그라데이션) + 1~2% 얇은 그리드 */}
         <div
           className="relative min-h-screen"
@@ -61,13 +62,13 @@ export default function RootLayout({
           />
           <div className="relative">
             <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/95 shadow-sm backdrop-blur-sm">
-              <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-                <Link href="/" className="flex min-w-0 flex-shrink-0 flex-col gap-0.5 transition hover:opacity-90">
-                  <span className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
+              <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 md:py-5">
+                <Link href="/" className="flex min-w-0 flex-shrink flex-col gap-0 transition hover:opacity-90">
+                  <span className="hidden sm:inline text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
                     Learning Science for Parents
                   </span>
                   <span
-                    className="text-2xl font-semibold tracking-tight text-foreground"
+                    className="text-lg font-semibold tracking-tight text-foreground sm:text-xl md:text-2xl"
                     style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}
                   >
                     학습과학 지식 브랜드
@@ -76,11 +77,15 @@ export default function RootLayout({
                 <NavLinks />
               </nav>
             </header>
-            <main className="min-h-[70vh]">{children}</main>
+            <main className="min-h-[70vh]">
+              <PageEnterAnimation>
+                {children}
+              </PageEnterAnimation>
+            </main>
         <ScrollDepthTracker />
         <CookieConsentBanner />
-        <footer className="mt-24 border-t border-[var(--border)] bg-[var(--surface-2)]">
-          <div className="mx-auto max-w-6xl px-6 py-14">
+        <footer className="mt-16 border-t border-[var(--border)] bg-[var(--surface-2)] sm:mt-24">
+          <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
             <div className="grid gap-12 md:grid-cols-3">
               <div className="space-y-3">
                 <p

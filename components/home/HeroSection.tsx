@@ -15,7 +15,7 @@ export function HeroSection() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="relative overflow-hidden py-14 md:py-20">
+    <section className="relative overflow-hidden py-10 sm:py-14 md:py-20">
       <div
         className="pointer-events-none absolute -top-10 left-0 right-0 h-48 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,var(--brand-500)_0%,transparent_60%)] opacity-[0.06]"
         aria-hidden
@@ -35,7 +35,7 @@ export function HeroSection() {
             LEARNING SCIENCE FOR PARENTS
           </p>
           <h1
-            className={`mt-2 text-3xl font-semibold tracking-tight text-foreground transition-all duration-500 sm:text-4xl md:text-[2.5rem] ${
+            className={`mt-2 text-2xl font-semibold tracking-tight text-foreground transition-all duration-500 sm:text-3xl md:text-4xl lg:text-[2.5rem] ${
               mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
             }`}
             style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif", transitionDelay: "100ms" }}
@@ -43,7 +43,7 @@ export function HeroSection() {
             학습과학 기반 부모 교육
           </h1>
           <p
-            className={`mt-4 max-w-xl text-[15.5px] leading-7 text-[var(--muted)] transition-all duration-500 md:text-[17px] md:leading-8 ${
+            className={`mt-3 max-w-xl text-sm leading-7 text-[var(--muted)] transition-all duration-500 sm:text-[15.5px] md:text-[17px] md:leading-8 ${
               mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
             }`}
             style={{ transitionDelay: "200ms" }}
@@ -68,20 +68,20 @@ export function HeroSection() {
           >
             <Link
               href="/guides"
-              className="rounded-xl bg-[var(--brand-500)] px-6 py-3 text-sm font-medium text-white no-underline shadow-sm transition hover:bg-[var(--brand-600)]"
+              className="rounded-xl bg-[var(--brand-500)] px-5 py-3 text-sm font-medium text-white no-underline shadow-sm transition hover:bg-[var(--brand-600)] min-h-[44px] inline-flex items-center justify-center sm:min-h-0"
             >
               가이드 보기
             </Link>
             <Link
               href="/concepts"
-              className="rounded-xl border border-[var(--border)] bg-[var(--surface)] px-6 py-3 text-sm font-medium text-foreground no-underline transition hover:border-[var(--border-strong)]"
+              className="rounded-xl border border-[var(--border)] bg-[var(--surface)] px-5 py-3 text-sm font-medium text-foreground no-underline transition hover:border-[var(--border-strong)] min-h-[44px] inline-flex items-center justify-center sm:min-h-0"
             >
               개념 사전 보기
             </Link>
           </div>
         </div>
         <div
-          className={`rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-6 shadow-sm transition-all duration-500 md:p-7 ${
+          className={`rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-4 shadow-sm transition-all duration-500 sm:p-6 md:p-7 ${
             mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
           }`}
           style={{ transitionDelay: "400ms" }}

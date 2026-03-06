@@ -95,7 +95,7 @@ export function ListWithFilters({
         sortValue={sort}
       />
       {isEmpty ? (
-        <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-6 py-12 text-center">
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-4 py-10 text-center sm:px-6 sm:py-12">
           <p className="text-[var(--muted)]">
             {items.length === 0
               ? `등록된 ${typeLabel}가 없습니다. 콘텐츠가 곧 추가됩니다.`

@@ -122,7 +122,7 @@ export default async function BookPage({
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <article className="mx-auto max-w-3xl px-6 py-14">
+      <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
         {coverImage && (
           <div className="mb-8 flex justify-center">
             <div className="h-56 w-40 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--muted-bg)]">

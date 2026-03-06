@@ -78,12 +78,12 @@ export function SearchClient() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="주제, 개념, 글 제목으로 검색해보세요"
-          className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3.5 text-foreground placeholder:text-[var(--muted)] focus:border-[var(--brand-500)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-500)]/20"
+          className="w-full min-h-[48px] rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-base text-foreground placeholder:text-[var(--muted)] focus:border-[var(--brand-500)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-500)]/20 sm:min-h-0 sm:py-3.5 sm:text-sm"
           aria-label="검색"
         />
         <button
           type="submit"
-          className="mt-3 rounded-xl bg-[var(--brand-500)] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-[var(--brand-600)]"
+          className="mt-3 min-h-[44px] rounded-xl bg-[var(--brand-500)] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-[var(--brand-600)] sm:min-h-0"
         >
           검색
         </button>

@@ -30,7 +30,7 @@ export default function BooksListPage() {
   }));
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-14">
+    <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
       <SectionHeader
         title="전자책"
         description="출간 목록 · 학습과학·교육 관련 전자책을 소개합니다."

@@ -160,11 +160,11 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <article className="mx-auto max-w-3xl px-6 py-14">
+      <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
         <header className="mb-10">
           <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">블로그</p>
           <h1
-            className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
+            className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-4xl"
             style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}
           >
             {title}

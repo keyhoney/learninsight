@@ -44,7 +44,7 @@ export default async function CategoryPage({
   };
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-14">
+    <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
       <p className="mb-2 text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
         카테고리
       </p>
@@ -52,7 +52,7 @@ export default async function CategoryPage({
         {decoded}
       </h1>
       {items.length === 0 ? (
-        <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-6 py-12 text-center">
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-4 py-10 text-center sm:px-6 sm:py-12">
           <p className="text-[var(--muted)]">이 카테고리에는 아직 글이 없습니다. 콘텐츠가 곧 추가됩니다.</p>
           <p className="mt-2 text-sm text-[var(--muted)]">
             <Link href="/" className="text-[var(--brand-500)] underline underline-offset-2 hover:no-underline">홈으로</Link>

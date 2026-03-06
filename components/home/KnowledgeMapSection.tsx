@@ -34,22 +34,22 @@ export function KnowledgeMapSection({ cards }: KnowledgeMapSectionProps) {
   const linkClass = "text-sm font-medium text-[var(--brand-500)] no-underline hover:underline hover:underline-offset-2";
 
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 md:py-20">
       <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">KNOWLEDGE MAP</p>
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
+      <h2 className="mt-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
         어디서부터 읽어야 할지 한눈에 보이도록
       </h2>
-      <p className="mt-3 max-w-2xl text-[15.5px] leading-7 text-[var(--muted)]">
+      <p className="mt-2 sm:mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-[15.5px]">
         핵심 가이드부터 개념 사전, 실천 툴킷, 최신 글, 전자책까지 필요한 깊이와 목적에 따라 탐색할 수 있습니다.
       </p>
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-12">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-12">
         {guidesCard && (
           <div
-            className={`group flex flex-col p-8 lg:col-span-5 ${cardClass}`}
+            className={`group flex flex-col p-5 sm:p-6 md:p-8 lg:col-span-5 ${cardClass}`}
             style={{ borderLeftWidth: "4px", borderLeftColor: PILLAR_STRIP.guides }}
           >
             <Link href={guidesCard.href} className="no-underline">
-              <h3 className="text-2xl font-semibold text-foreground group-hover:text-[var(--brand-500)]" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
+              <h3 className="text-xl font-semibold text-foreground group-hover:text-[var(--brand-500)] sm:text-2xl" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
                 {guidesCard.title}
               </h3>
             </Link>

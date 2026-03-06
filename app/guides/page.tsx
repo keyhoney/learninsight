@@ -38,8 +38,8 @@ export default function GuidesListPage() {
   const listItems = items.length > 1 ? items.slice(1) : items;
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-14">
-      <div className="mb-12 rounded-2xl border border-[var(--border)] bg-[var(--surface-featured)] px-6 py-8 md:px-8 md:py-10">
+    <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+      <div className="mb-8 rounded-2xl border border-[var(--border)] bg-[var(--surface-featured)] px-4 py-6 sm:mb-12 sm:px-6 sm:py-8 md:px-8 md:py-10">
         <SectionHeader
           layout="twoCol"
           eyebrow="가이드"

@@ -111,7 +111,7 @@ export default function Home() {
   }));
 
   return (
-    <div className="px-6">
+    <div className="px-4 sm:px-6">
       <main className="mx-auto max-w-6xl space-y-0">
         <HeroSection />
         <KnowledgeMapSection cards={knowledgeMapCards} />

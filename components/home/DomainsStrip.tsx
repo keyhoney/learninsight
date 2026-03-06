@@ -7,8 +7,8 @@ type DomainsStripProps = {
 
 export function DomainsStrip({ getCount }: DomainsStripProps) {
   return (
-    <section className="py-10">
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[var(--muted)]">
+    <section className="py-6 sm:py-10">
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs text-[var(--muted)] sm:text-sm">
         <span className="font-medium text-foreground">주제별:</span>
         {LEARNING_SCIENCE_DOMAINS.map((domain, i) => {
           const count = getCount(domain.label);

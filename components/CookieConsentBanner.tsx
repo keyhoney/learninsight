@@ -60,18 +60,18 @@ export function CookieConsentBanner() {
             개인정보 처리방침
           </Link>
         </p>
-        <div className="flex shrink-0 gap-3">
+        <div className="flex shrink-0 flex-wrap gap-3">
           <button
             type="button"
             onClick={decline}
-            className="rounded-lg border border-[var(--border)] bg-[var(--background)] px-5 py-2.5 text-sm font-medium text-foreground transition hover:bg-[var(--muted-bg)]"
+            className="min-h-[44px] rounded-lg border border-[var(--border)] bg-[var(--background)] px-5 py-2.5 text-sm font-medium text-foreground transition hover:bg-[var(--muted-bg)] sm:min-h-0"
           >
             필수만
           </button>
           <button
             type="button"
             onClick={accept}
-            className="rounded-xl bg-[var(--brand-500)] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-[var(--brand-600)]"
+            className="min-h-[44px] rounded-xl bg-[var(--brand-500)] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-[var(--brand-600)] sm:min-h-0"
           >
             모두 허용
           </button>

@@ -37,7 +37,7 @@ export default function ToolkitListPage() {
   const tags = Array.from(new Set(items.flatMap((i) => i.tags))).sort();
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-14">
+    <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
       <SectionHeader
         title="툴킷"
         description="부모 적용 자료"

@@ -13,22 +13,22 @@ type ConceptsIndexSectionProps = {
 
 export function ConceptsIndexSection({ concepts }: ConceptsIndexSectionProps) {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 md:py-20">
       <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">CONCEPTS INDEX</p>
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
+      <h2 className="mt-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
         학습과학 용어를 짧고 정확하게
       </h2>
-      <p className="mt-3 max-w-2xl text-[15.5px] leading-7 text-[var(--muted)]">
+      <p className="mt-2 sm:mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-[15.5px]">
         복잡한 용어를 과장 없이 정리하고, 학부모의 언어로 다시 설명합니다.
       </p>
       {concepts.length > 0 ? (
         <>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {concepts.map((c) => (
               <Link
                 key={c.slug}
                 href={fullPath("concepts", c.slug)}
-                className="block rounded-xl border border-[var(--border)] bg-[var(--surface-2)] p-5 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface)]"
+                className="block rounded-xl border border-[var(--border)] bg-[var(--surface-2)] p-4 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface)] sm:p-5 min-h-[44px] flex flex-col justify-center sm:min-h-0"
               >
                 <p className="font-semibold text-foreground" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
                   {c.title}

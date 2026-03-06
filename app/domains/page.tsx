@@ -11,20 +11,20 @@ export const metadata = {
 
 export default function DomainsPage() {
   return (
-    <main className="mx-auto max-w-4xl px-6 py-14">
+    <main className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-14">
       <SectionHeader
         eyebrow="학습과학"
         title="5가지 영역"
         description="인지심리학, 신경과학(뇌과학), 교육심리학, 발달심리학, 동기·정서심리학으로 주제별로 탐색할 수 있습니다."
       />
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {LEARNING_SCIENCE_DOMAINS.map((domain) => {
           const count = getArchiveByCategory(domain.label).length;
           return (
             <Link
               key={domain.id}
               href={`/c/${encodeURIComponent(domain.label)}`}
-              className="group block rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-6 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface)]"
+              className="group block rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-4 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface)] sm:p-6 min-h-[48px] flex flex-col justify-center sm:min-h-0"
             >
               <h2
                 className="font-semibold text-foreground group-hover:text-[var(--brand-500)]"

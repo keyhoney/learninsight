@@ -35,7 +35,7 @@ export default function BlogListPage() {
   const tags = Array.from(new Set(items.flatMap((i) => i.tags))).sort();
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-14">
+    <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
       <SectionHeader
         eyebrow="블로그"
         title="최신 글"

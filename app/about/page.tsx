@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-14">
+    <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
       <SectionHeader
         title="저자 소개"
         description="학습과학 지식 브랜드 소개"

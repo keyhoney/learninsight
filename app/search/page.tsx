@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function SearchPage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-14">
+    <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
       <p className="mb-2 text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
         사이트 내 검색
       </p>

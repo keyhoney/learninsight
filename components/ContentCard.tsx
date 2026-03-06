@@ -41,13 +41,13 @@ function getCardClasses(type: ContentType): string {
   const hoverBg = "hover:bg-[var(--surface)]";
   switch (type) {
     case "guides":
-      return `${base} border-[var(--border)] bg-[var(--surface-2)] p-7 shadow-sm ${hoverBg}`;
+      return `${base} border-[var(--border)] bg-[var(--surface-2)] p-4 shadow-sm sm:p-5 md:p-7 ${hoverBg}`;
     case "blog":
-      return `${base} border-[var(--border)] bg-[var(--surface-2)] p-5 ${hoverBg}`;
+      return `${base} border-[var(--border)] bg-[var(--surface-2)] p-4 sm:p-5 ${hoverBg}`;
     case "concepts":
-      return `${base} border-[var(--border)] bg-[var(--inset)]/40 p-5 ${hoverBg}`;
+      return `${base} border-[var(--border)] bg-[var(--inset)]/40 p-4 sm:p-5 ${hoverBg}`;
     case "toolkit":
-      return `${base} border-[var(--border)] bg-[var(--surface-2)] p-5 ${hoverBg}`;
+      return `${base} border-[var(--border)] bg-[var(--surface-2)] p-4 sm:p-5 ${hoverBg}`;
     case "books":
       return `${base} border-[var(--border)] bg-[var(--surface-2)] p-6 ${hoverBg}`;
     default:

@@ -48,12 +48,12 @@ export function SectionHeader({
         ))}
       </div>
       <h1
-        className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl"
+        className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:mt-3 sm:text-3xl md:text-4xl"
         style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}
       >
         {title}
       </h1>
-      <p className="mt-2 max-w-2xl text-[15.5px] leading-7 text-[var(--muted)] md:text-[17px] md:leading-8">
+      <p className="mt-1.5 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:mt-2 sm:text-[15.5px] md:text-[17px] md:leading-8">
         {description}
       </p>
     </>
@@ -61,8 +61,8 @@ export function SectionHeader({
 
   if (layout === "twoCol" && secondary) {
     return (
-      <header className="mb-12">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-12">
+      <header className="mb-8 sm:mb-12">
+        <div className="flex flex-col gap-6 sm:gap-8 md:flex-row md:items-start md:justify-between md:gap-12">
           <div className="min-w-0 flex-1">{headerContent}</div>
           <div className="shrink-0 md:pt-10">{secondary}</div>
         </div>
@@ -70,5 +70,5 @@ export function SectionHeader({
     );
   }
 
-  return <header className="mb-10">{headerContent}</header>;
+  return <header className="mb-8 sm:mb-10">{headerContent}</header>;
 }

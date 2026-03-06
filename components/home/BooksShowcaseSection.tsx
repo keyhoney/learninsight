@@ -27,19 +27,19 @@ export function BooksShowcaseSection({ books }: BooksShowcaseSectionProps) {
   if (books.length === 0) return null;
 
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 md:py-20">
       <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">BOOKS</p>
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
+      <h2 className="mt-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
         전자책으로 더 길게 읽기
       </h2>
-      <p className="mt-3 max-w-2xl text-[15.5px] leading-7 text-[var(--muted)]">
+      <p className="mt-2 sm:mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-[15.5px]">
         사이트에서 다루는 핵심 내용을 더 체계적인 흐름으로 읽고 싶다면 전자책이 도움이 됩니다.
       </p>
-      <div className="mt-10 grid gap-8 sm:grid-cols-2">
+      <div className="mt-8 grid gap-5 sm:mt-10 sm:gap-8 sm:grid-cols-2">
         {books.map((item) => (
           <div
             key={item.slug}
-            className="flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-6 transition hover:border-[var(--border-strong)] sm:flex-row sm:gap-6"
+            className="flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-4 transition hover:border-[var(--border-strong)] sm:flex-row sm:gap-6 sm:p-6"
           >
             {item.coverImage && (
               <div className="h-36 w-28 shrink-0 overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--muted-bg)]">

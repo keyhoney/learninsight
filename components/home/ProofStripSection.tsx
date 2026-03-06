@@ -43,15 +43,15 @@ export function ProofStripSection({ items }: ProofStripSectionProps) {
   if (items.length === 0) return null;
 
   return (
-    <section className="py-14">
-      <div className="rounded-xl border border-[var(--border)] bg-[var(--inset)]/60 py-8">
-        <p className="px-6 text-center text-sm font-semibold text-foreground">
+    <section className="py-10 sm:py-14">
+      <div className="rounded-xl border border-[var(--border)] bg-[var(--inset)]/60 py-6 sm:py-8">
+        <p className="px-4 text-center text-sm font-semibold text-foreground sm:px-6">
           이 사이트는 축적되는 지식 구조를 지향합니다
         </p>
-        <p className="mt-1 px-6 text-center text-xs text-[var(--muted)]">
+        <p className="mt-1 px-4 text-center text-xs text-[var(--muted)] sm:px-6">
           한 편의 글보다, 서로 연결되는 지식 아카이브가 더 큰 힘을 만듭니다.
         </p>
-        <div className="mt-8 grid gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-4 px-4 sm:mt-8 sm:gap-6 sm:px-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
             <div key={item.label} className="flex flex-col items-center text-center">
               <span className="text-2xl font-semibold text-foreground">

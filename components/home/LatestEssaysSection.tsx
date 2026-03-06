@@ -16,17 +16,17 @@ type LatestEssaysSectionProps = {
 
 export function LatestEssaysSection({ essays }: LatestEssaysSectionProps) {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 md:py-20">
       <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">LATEST ESSAYS</p>
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
+      <h2 className="mt-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl" style={{ fontFamily: "var(--font-noto-serif-kr), ui-serif, serif" }}>
         문제 상황에서 시작하는 글
       </h2>
-      <p className="mt-3 max-w-2xl text-[15.5px] leading-7 text-[var(--muted)]">
+      <p className="mt-2 sm:mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-[15.5px]">
         부모가 실제로 마주하는 질문에서 출발해, 심리와 학습과학의 언어로 다시 설명합니다.
       </p>
       {essays.length > 0 ? (
         <>
-          <ul className="mt-10 space-y-4">
+          <ul className="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
             {essays.map((post) => (
               <li key={post.slug}>
                 <ContentCard
