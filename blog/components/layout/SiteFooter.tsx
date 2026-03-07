@@ -14,17 +14,18 @@ export function SiteFooter() {
           <div>
             <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4 text-sm sm:text-base">탐색</h3>
             <ul className="space-y-2 sm:space-y-3 text-sm text-slate-600 dark:text-slate-400">
-              <li><Link href="/domains" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">도메인</Link></li>
+              <li><Link href="/domains" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">학문별</Link></li>
               <li><Link href="/guides" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">가이드</Link></li>
               <li><Link href="/concepts" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">개념</Link></li>
-              <li><Link href="/toolkit" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">툴킷</Link></li>
+              <li><Link href="/blog" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">블로그</Link></li>
+
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4 text-sm sm:text-base">자료</h3>
             <ul className="space-y-2 sm:space-y-3 text-sm text-slate-600 dark:text-slate-400">
-              <li><Link href="/blog" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">블로그</Link></li>
               <li><Link href="/books" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">도서</Link></li>
+              <li><Link href="/toolkit" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">툴킷</Link></li>
               <li><Link href="/search" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">검색</Link></li>
               <li><Link href="/rss.xml" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">RSS 피드</Link></li>
             </ul>

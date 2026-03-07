@@ -43,6 +43,16 @@ function getDate(fm: Record<string, unknown>, key: string): string | undefined {
   return s || undefined;
 }
 
+/** frontmatter related / relatedContentIds → "type-slug" 배열 (예: guide:math-anxiety → guide-math-anxiety) */
+function normalizeRelatedIds(fm: Record<string, unknown>): string[] {
+  const raw = fm.relatedContentIds ?? fm.related;
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .filter((x): x is string => typeof x === "string")
+    .map((s) => s.trim().replace(/^([^:-]+)[:]/, "$1-")) // guide:slug → guide-slug
+    .filter(Boolean);
+}
+
 /** MDX frontmatter → AnyContent (목록/메타용). body는 상세에서 MDX 파일로 채움. */
 function buildContentFromMdx(
   type: ContentType,
@@ -60,6 +70,7 @@ function buildContentFromMdx(
   const publishedAt = getDate(fm, "datePublished") ?? getDate(fm, "date");
   const coverImage = (fm.coverImage as string) || undefined;
   const ogImage = (fm.ogImage as string) || coverImage;
+  const relatedIds = normalizeRelatedIds(fm);
   const base = {
     id,
     type,
@@ -74,6 +85,7 @@ function buildContentFromMdx(
     body: "",
     ...(coverImage && { coverImage }),
     ...(ogImage && { ogImage }),
+    ...(relatedIds.length > 0 && { relatedContentIds: relatedIds }),
   };
 
   if (type === "guide") {
@@ -155,14 +167,48 @@ export async function getContentBySlug(type: ContentType, slug: string): Promise
   return content.find(c => c.type === type && c.slug === slug) || null;
 }
 
-/** 관련 콘텐츠: math_blog처럼 태그 일치 → 도메인 일치 순으로 자동 연결. 수동 relatedContentIds 불필요. */
+/** "type:slug" 또는 "type-slug" 문자열로 콘텐츠 목록 조회 (MDX 본문 RelatedCards 등에서 사용) */
+export async function getContentByRefs(refs: string[]): Promise<AnyContent[]> {
+  const out: AnyContent[] = [];
+  for (const ref of refs) {
+    const parsed = parseContentId(ref.trim().replace(/^([^:-]+):/, "$1-"));
+    if (!parsed) continue;
+    const item = await getContentBySlug(parsed.type, parsed.slug);
+    if (item) out.push(item);
+  }
+  return out;
+}
+
+/** id 문자열 "type-slug"에서 type과 slug 분리 (slug에 하이픈 가능) */
+function parseContentId(id: string): { type: ContentType; slug: string } | null {
+  const parts = id.split("-");
+  const type = parts[0] as ContentType;
+  const validTypes: ContentType[] = ["guide", "blog", "concept", "toolkit", "book"];
+  if (!validTypes.includes(type) || parts.length < 2) return null;
+  return { type, slug: parts.slice(1).join("-") };
+}
+
+/** 관련 콘텐츠: MDX frontmatter related(수동) 있으면 우선 사용, 부족분은 태그·도메인 자동 보강 */
 export async function getRelatedContent(content: AnyContent, limit = 6): Promise<AnyContent[]> {
   const all = await getAllContent();
   const related: AnyContent[] = [];
   const seen = new Set<string>([content.id]);
 
-  // 1) 태그 일치
-  if (content.tags.length > 0) {
+  // 0) frontmatter에 related / relatedContentIds 있으면 수동 지정 먼저
+  const ids = content.relatedContentIds ?? [];
+  for (const id of ids) {
+    if (related.length >= limit) break;
+    const parsed = parseContentId(id);
+    if (!parsed) continue;
+    const item = await getContentBySlug(parsed.type, parsed.slug);
+    if (item && !seen.has(item.id)) {
+      related.push(item);
+      seen.add(item.id);
+    }
+  }
+
+  // 1) 부족하면 태그 일치로 보강
+  if (related.length < limit && content.tags.length > 0) {
     const byTag = all.filter(
       (c) => !seen.has(c.id) && c.tags.some((t) => content.tags.includes(t))
     );
@@ -173,7 +219,7 @@ export async function getRelatedContent(content: AnyContent, limit = 6): Promise
     }
   }
 
-  // 2) 도메인 일치로 보강
+  // 2) 그래도 부족하면 도메인 일치로 보강
   if (related.length < limit && content.domains.length > 0) {
     const byDomain = all.filter(
       (c) =>

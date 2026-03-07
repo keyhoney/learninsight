@@ -19,11 +19,13 @@ import {
   WhoThisIsFor,
   WhatYouWillLearn,
   TopicIntro,
+  RelatedCards,
 } from "@/components/mdx";
 import { toImageUrl } from "@/lib/image-url";
 
 export const mdxComponents: MDXComponents = {
   img: (props) => <img {...props} src={toImageUrl(props.src ?? "")} alt={props.alt ?? ""} />,
+  RelatedCards,
   TheoryBox,
   TeacherNote,
   ForStudents,

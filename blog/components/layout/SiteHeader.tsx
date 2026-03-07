@@ -15,11 +15,11 @@ export function SiteHeader() {
             </span>
           </Link>
           <nav className="hidden md:flex gap-5 lg:gap-6">
-            <Link href="/domains" className="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors whitespace-nowrap">도메인</Link>
+            <Link href="/domains" className="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors whitespace-nowrap">학문별</Link>
             <Link href="/guides" className="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors whitespace-nowrap">가이드</Link>
             <Link href="/concepts" className="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors whitespace-nowrap">개념</Link>
-            <Link href="/toolkit" className="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors whitespace-nowrap">툴킷</Link>
             <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors whitespace-nowrap">블로그</Link>
+            <Link href="/toolkit" className="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors whitespace-nowrap">툴킷</Link>
             <Link href="/books" className="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors whitespace-nowrap">도서</Link>
           </nav>
         </div>

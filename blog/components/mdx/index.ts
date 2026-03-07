@@ -10,6 +10,7 @@ export { RelatedConcepts } from "./RelatedConcepts";
 export { ReflectionPrompt } from "./ReflectionPrompt";
 export { WhyItMatters } from "./WhyItMatters";
 export { RelatedGuides } from "./RelatedGuides";
+export { RelatedCards } from "./RelatedCards";
 export { WhenToUse } from "./WhenToUse";
 export { Troubleshooting } from "./Troubleshooting";
 export { PrintableBlock } from "./PrintableBlock";
