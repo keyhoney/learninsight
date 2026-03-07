@@ -1,0 +1,12 @@
+/blog/*
+  Cache-Control: public, max-age=31536000, immutable
+/books/*
+  Cache-Control: public, max-age=31536000, immutable
+/concepts/*
+  Cache-Control: public, max-age=31536000, immutable
+/guides/*
+  Cache-Control: public, max-age=31536000, immutable
+/toolkit/*
+  Cache-Control: public, max-age=31536000, immutable
+/ogprofile/*
+  Cache-Control: public, max-age=86400

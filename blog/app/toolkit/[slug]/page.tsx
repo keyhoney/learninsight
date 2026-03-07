@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return constructMetadata({
     title: content.title,
     description: content.summary,
+    image: content.ogImage ?? content.coverImage,
     ...(content.lang && { lang: content.lang }),
   });
 }

@@ -24,6 +24,8 @@ export type BaseContent = {
   seoTitle?: string;
   seoDescription?: string;
   ogImage?: string;
+  /** MDX frontmatter coverImage 예: /blog/my-first-post/01.webp */
+  coverImage?: string;
   relatedContentIds?: string[];
   references?: { title?: string; url: string }[];
   lang?: string;

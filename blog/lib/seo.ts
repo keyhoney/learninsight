@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { toImageUrl } from "@/lib/image-url";
 
 interface SeoProps {
   title?: string;
@@ -9,8 +10,8 @@ interface SeoProps {
   lang?: string;
 }
 
-const siteName = "Learning Science Knowledge Archive";
-const defaultDescription = "A knowledge archive for learning science-based parenting education, featuring guides, concepts, toolkits, blogs, and books.";
+const siteName = "Mathesis";
+const defaultDescription = "학습과학 기반 부모 교육을 위한 지식 아카이브입니다. 가이드, 개념, 툴킷, 블로그, 도서를 제공합니다.";
 
 export function constructMetadata({
   title,
@@ -20,6 +21,7 @@ export function constructMetadata({
   type = "website",
   lang,
 }: SeoProps = {}): Metadata {
+  const imageUrl = image ? toImageUrl(image) : undefined;
   return {
     title: title ? `${title} | ${siteName}` : siteName,
     description,
@@ -30,20 +32,22 @@ export function constructMetadata({
       type,
       url,
       ...(lang && { locale: lang }),
-      images: [
-        {
-          url: image,
-          width: 1200,
-          height: 630,
-          alt: title || siteName,
-        },
-      ],
+      images: imageUrl
+        ? [
+            {
+              url: imageUrl,
+              width: 1200,
+              height: 630,
+              alt: title || siteName,
+            },
+          ]
+        : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: title ? `${title} | ${siteName}` : siteName,
       description,
-      images: [image],
+      images: imageUrl ? [imageUrl] : undefined,
     },
     metadataBase: new URL(process.env.APP_URL || "http://localhost:3000"),
   };

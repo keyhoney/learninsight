@@ -58,6 +58,8 @@ function buildContentFromMdx(
   const tags = normalizeTags(fm);
   const domains = categoriesToDomains(categories);
   const publishedAt = getDate(fm, "datePublished") ?? getDate(fm, "date");
+  const coverImage = (fm.coverImage as string) || undefined;
+  const ogImage = (fm.ogImage as string) || coverImage;
   const base = {
     id,
     type,
@@ -70,6 +72,8 @@ function buildContentFromMdx(
     categories,
     tags,
     body: "",
+    ...(coverImage && { coverImage }),
+    ...(ogImage && { ogImage }),
   };
 
   if (type === "guide") {

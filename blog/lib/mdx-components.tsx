@@ -20,8 +20,10 @@ import {
   WhatYouWillLearn,
   TopicIntro,
 } from "@/components/mdx";
+import { toImageUrl } from "@/lib/image-url";
 
 export const mdxComponents: MDXComponents = {
+  img: (props) => <img {...props} src={toImageUrl(props.src ?? "")} alt={props.alt ?? ""} />,
   TheoryBox,
   TeacherNote,
   ForStudents,

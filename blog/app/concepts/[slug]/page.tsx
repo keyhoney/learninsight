@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return constructMetadata({
     title: `${content.title} 뜻과 설명`,
     description: content.shortDefinition,
+    image: content.ogImage ?? content.coverImage,
     ...(content.lang && { lang: content.lang }),
   });
 }
